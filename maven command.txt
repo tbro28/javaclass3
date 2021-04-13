@@ -1,0 +1,10 @@
+mvn archetype:generate -DinteractiveMode=false \
+                       -DarchetypeArtifactId=maven-archetype-quickstart \
+                       -DgroupId=edu.uw -DartifactId=cp520 \
+                       -Dversion=01 \
+                       -Dpackage=edu.uw.cp520.example
+
+
+mvn clean test
+
+mvn assembly:single
