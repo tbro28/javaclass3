@@ -8,7 +8,7 @@
   <version>1.0</version>
 
   <properties>
-    <student>BrownTJ</student>
+    <student>LastFM</student>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -20,7 +20,7 @@
     </repository>
   </repositories>
 
-  <dependencies>
+   <dependencies>
     <dependency>
       <groupId>edu.uw.ext</groupId>
       <artifactId>cp530-framework</artifactId>
@@ -33,7 +33,7 @@
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
-
+ 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-jdk14</artifactId>
@@ -83,14 +83,14 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M5</version>
         <configuration>
-          <systemPropertyVariables>
-            <java.util.logging.config.file>src/main/resources/logging.properties</java.util.logging.config.file>
-          </systemPropertyVariables>
+		  <systemPropertyVariables>
+	        <java.util.logging.config.file>src/main/resources/logging.properties</java.util.logging.config.file>
+		  </systemPropertyVariables>
         </configuration>
       </plugin>
 
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
+        <artifactId>maven-assembly-plugin</artifactId> 
         <version>3.3.0</version>
         <configuration>
           <finalName>${student}-${project.version}</finalName>
@@ -100,6 +100,7 @@
           <tarLongFileMode>posix</tarLongFileMode>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 
