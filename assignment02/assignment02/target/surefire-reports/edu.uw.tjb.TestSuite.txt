@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: edu.uw.tjb.TestSuite
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 2, Errors: 8, Skipped: 0, Time elapsed: 1.029 s <<< FAILURE! - in edu.uw.tjb.TestSuite
+DaoTest.testDelete()  Time elapsed: 0.036 s  <<< ERROR!
+java.lang.NullPointerException
+
+DaoTest.testReload()  Time elapsed: 0.032 s  <<< ERROR!
+java.lang.NullPointerException
+
+DaoTest.testSetGet()  Time elapsed: 0.032 s  <<< ERROR!
+java.lang.NullPointerException
+
+AccountManagerTest.testReloadFile()  Time elapsed: 0.062 s  <<< ERROR!
+java.lang.NullPointerException
+
+AccountManagerTest.testCreateDuplicateUsername()  Time elapsed: 0.032 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should have thrown AccountException
+
+AccountManagerTest.testPersist()  Time elapsed: 0.032 s  <<< ERROR!
+java.lang.NullPointerException
+
+AccountManagerTest.testGetAccount()  Time elapsed: 0.034 s  <<< ERROR!
+java.lang.NullPointerException
+
+AccountManagerTest.testValidate()  Time elapsed: 0.034 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+
+AccountManagerTest.testRegistration()  Time elapsed: 0.028 s  <<< ERROR!
+java.lang.NullPointerException
+
+AccountManagerTest.testMultipleGetAccount()  Time elapsed: 0.03 s  <<< ERROR!
+java.lang.NullPointerException
+

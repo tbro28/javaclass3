@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.uw.tjb.TestSuite" time="1.029" tests="14" errors="8" skipped="0" failures="2">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Tim\java\uwclass\class3\assignment02\assignment02\target\test-classes;C:\Users\Tim\java\uwclass\class3\assignment02\assignment02\target\classes;C:\Users\Tim\.m2\repository\edu\uw\ext\cp530-framework\1.0\cp530-framework-1.0.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-context\5.3.2\spring-context-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-aop\5.3.2\spring-aop-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-beans\5.3.2\spring-beans-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-core\5.3.2\spring-core-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-jcl\5.3.2\spring-jcl-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-expression\5.3.2\spring-expression-5.3.2.jar;C:\Users\Tim\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Tim\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.7\jackson-databind-2.9.7.jar;C:\Users\Tim\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;C:\Users\Tim\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.7\jackson-core-2.9.7.jar;C:\Users\Tim\.m2\repository\edu\uw\ext\cp530-framework\1.0\cp530-framework-1.0-tests.jar;C:\Users\Tim\.m2\repository\org\slf4j\slf4j-jdk14\1.7.30\slf4j-jdk14-1.7.30.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.1\junit-jupiter-5.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.1\junit-jupiter-api-5.7.1.jar;C:\Users\Tim\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.1\junit-jupiter-params-5.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.1\junit-jupiter-engine-5.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-engine\1.7.1\junit-platform-engine-1.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-suite-api\1.8.0-M1\junit-platform-suite-api-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\org\apiguardian\apiguardian-api\1.1.1\apiguardian-api-1.1.1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0-M1\junit-platform-commons-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-runner\1.8.0-M1\junit-platform-runner-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Tim\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-launcher\1.8.0-M1\junit-platform-launcher-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.8.0-M1\junit-platform-suite-commons-1.8.0-M1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="America/Los_Angeles"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.8\bin"/>
+    <property name="sun.java.command" value="C:\Users\Tim\AppData\Local\Temp\surefire2839892030168665699\surefirebooter10686645581565273891.jar C:\Users\Tim\AppData\Local\Temp\surefire2839892030168665699 2021-06-05T16-01-16_570-jvmRun1 surefire9663969809866548706tmp surefire_03169932853650753873tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Tim\java\uwclass\class3\assignment02\assignment02\target\test-classes;C:\Users\Tim\java\uwclass\class3\assignment02\assignment02\target\classes;C:\Users\Tim\.m2\repository\edu\uw\ext\cp530-framework\1.0\cp530-framework-1.0.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-context\5.3.2\spring-context-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-aop\5.3.2\spring-aop-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-beans\5.3.2\spring-beans-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-core\5.3.2\spring-core-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-jcl\5.3.2\spring-jcl-5.3.2.jar;C:\Users\Tim\.m2\repository\org\springframework\spring-expression\5.3.2\spring-expression-5.3.2.jar;C:\Users\Tim\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Tim\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.7\jackson-databind-2.9.7.jar;C:\Users\Tim\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;C:\Users\Tim\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.7\jackson-core-2.9.7.jar;C:\Users\Tim\.m2\repository\edu\uw\ext\cp530-framework\1.0\cp530-framework-1.0-tests.jar;C:\Users\Tim\.m2\repository\org\slf4j\slf4j-jdk14\1.7.30\slf4j-jdk14-1.7.30.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.1\junit-jupiter-5.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.1\junit-jupiter-api-5.7.1.jar;C:\Users\Tim\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.1\junit-jupiter-params-5.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.1\junit-jupiter-engine-5.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-engine\1.7.1\junit-platform-engine-1.7.1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-suite-api\1.8.0-M1\junit-platform-suite-api-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\org\apiguardian\apiguardian-api\1.1.1\apiguardian-api-1.1.1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0-M1\junit-platform-commons-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-runner\1.8.0-M1\junit-platform-runner-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Tim\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-launcher\1.8.0-M1\junit-platform-launcher-1.8.0-M1.jar;C:\Users\Tim\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.8.0-M1\junit-platform-suite-commons-1.8.0-M1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Tim"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2020-07-14"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.8"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Tim\java\uwclass\class3\assignment02\assignment02"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Tim\AppData\Local\Temp\surefire2839892030168665699\surefirebooter10686645581565273891.jar"/>
+    <property name="user.script" value=""/>
+    <property name="java.util.logging.config.file" value="src/main/resources/logging.properties"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.8+10-LTS"/>
+    <property name="user.name" value="Tim"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\Tim\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Tim\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.8"/>
+    <property name="user.dir" value="C:\Users\Tim\java\uwclass\class3\assignment02\assignment02"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\Tim\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Tim\bin;C:\Python39\Scripts;C:\Python39;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Python38\Scripts;C:\Python38;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\QuickTime\QTSystem;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\dotnet;C:\ProgramData\chocolatey\bin;C:\Program Files\PuTTY;C:\Python38\Lib\site-packages;C:\Program Files\Java\jdk-11.0.8\bin;C:\Program Files\Java\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk-11.0.8\bin\jre\bin;C:\Program Files\Java\jdk-11.0.8\bin\jre;C:\Program Files (x86)\Common Files\Acronis\VirtualFile;C:\Program Files (x86)\Common Files\Acronis\VirtualFile64;C:\Program Files (x86)\Common Files\Acronis\FileProtector;C:\Program Files (x86)\Common Files\Acronis\FileProtector64;C:\Program Files (x86)\Common Files\Acronis\SnapAPI;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\nodejs;C:\Users\Tim\anaconda3\Scripts;C:\Program Files (x86)\dotnet;C:\HashiCorp\Vagrant\bin;C:\strawberry\c\bin;C:\strawberry\perl\bin;C:\Users\Tim\java\squirrel;C:\Program Files\Java\jdk-11.0.8\bin\db-derby-10.15.2.0-bin\db-derby-10.15.2.0-bin\bin;C:\Program Files\Wireshark;C:\Users\Tim\AppData\Local\Microsoft\WindowsApps;C:\Users\Tim\AppData\Local\atom\bin;C:\Users\Tim\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Users\Tim\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Tim\.dotnet\tools;C:\Program Files\Docker Toolbox;C:\eclipse\selenium\drivers;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.1.2\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Users\Tim\.dotnet\tools;C:\Users\Tim\AppData\Local\Pandoc;C:\Users\Tim\AppData\Roaming\npm;C:\Users\Tim\AppData\Local\Programs\Fiddler;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.8+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testClose()" classname="DaoTest" time="0.299"/>
+  <testcase name="testReset()" classname="DaoTest" time="0.041"/>
+  <testcase name="testDelete()" classname="DaoTest" time="0.036">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testReload()" classname="DaoTest" time="0.032">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testSetGet()" classname="DaoTest" time="0.032">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testReloadFile()" classname="AccountManagerTest" time="0.062">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testCreateDuplicateUsername()" classname="AccountManagerTest" time="0.032">
+    <failure message="Should have thrown AccountException" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Should have thrown AccountException
+]]></failure>
+  </testcase>
+  <testcase name="testClose()" classname="AccountManagerTest" time="0.038"/>
+  <testcase name="testPersist()" classname="AccountManagerTest" time="0.032">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testGetAccount()" classname="AccountManagerTest" time="0.034">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testValidate()" classname="AccountManagerTest" time="0.034">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+]]></failure>
+  </testcase>
+  <testcase name="testRegistration()" classname="AccountManagerTest" time="0.028">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+  <testcase name="testDeleteAccount()" classname="AccountManagerTest" time="0.03"/>
+  <testcase name="testMultipleGetAccount()" classname="AccountManagerTest" time="0.03">
+    <error type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException
+]]></error>
+  </testcase>
+</testsuite>
