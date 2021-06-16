@@ -108,11 +108,18 @@ public class PrivateMessageCodecImpl implements PrivateMessageCodec {
 
         String clientTrustAlias = "clientPubKey";
         System.out.println("True??? " + trustStore.containsAlias(clientTrustAlias));
-        String value = "clientStorePass";
-        char[] clientStorePasswd = value.toCharArray();
+
         Certificate certificate = trustStore.getCertificate(clientTrustAlias);
         //System.out.println(certificate);
         Key publicBrokerKey = certificate.getPublicKey();
+
+
+        String value = "clientStorePass";
+        char[] clientStorePasswd = value.toCharArray();
+        Key maybe = trustStore.getKey(clientTrustAlias, clientStorePasswd);
+
+
+
 
 
         //Encipher the shared symmetric secret key's bytes using the public key from the certificate file
@@ -120,7 +127,7 @@ public class PrivateMessageCodecImpl implements PrivateMessageCodec {
         Cipher cipherPublicBroker = Cipher.getInstance("AES/ECB/PKCS5Padding");
         //cipher.init(Cipher.ENCRYPT_MODE, certificate.getPublicKey());
         //cipher.init(Cipher.ENCRYPT_MODE, certificate);
-        cipher.init(Cipher.ENCRYPT_MODE, publicBrokerKey);
+        cipher.init(Cipher.ENCRYPT_MODE, maybe);
         byte[] encryptedSym = cipher.doFinal(symKey.getEncoded());
 
 
