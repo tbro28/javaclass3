@@ -6,16 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cp530-1" />
+        <module name="cp530-01" />
+        <module name="assignment02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cp530-1" target="11" />
+      <module name="assignment02" target="11" />
+      <module name="cp530-01" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="cp530-1" options="-Xlint:unchecked" />
+      <module name="assignment02" options="-Xlint:unchecked" />
+      <module name="cp530-01" options="-Xlint:unchecked" />
     </option>
   </component>
 </project>

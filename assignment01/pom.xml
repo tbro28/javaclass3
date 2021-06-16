@@ -5,7 +5,7 @@
   <groupId>edu.uw.browntj</groupId>
   <artifactId>cp530-1</artifactId>
   <packaging>jar</packaging>
-  <version>01</version>
+  <version>02</version>
 
   <properties>
     <student>BrownTJ</student>
