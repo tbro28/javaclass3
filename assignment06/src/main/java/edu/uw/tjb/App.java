@@ -46,7 +46,11 @@ public class App
         char[] senderKeyStorePasswd = value.toCharArray();
 
         try {
-            pmc.encipher("Hello World.".getBytes(StandardCharsets.UTF_8), "clientKey.jck", senderKeyStorePasswd, "clientPrivKey", "brokerCert.pem");
+            pmc.encipher("Hello World.".getBytes(StandardCharsets.UTF_8),
+                    "clientKey.jck",
+                    senderKeyStorePasswd,
+                    "clientPrivKey",
+                    "brokerCert.pem");
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -2,15 +2,18 @@ package edu.uw.tjb;
 
 import edu.uw.ext.framework.crypto.PrivateMessageCodec;
 import edu.uw.ext.framework.crypto.PrivateMessageTriple;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.security.*;
+import java.security.cert.Certificate;
 
 
 /**
@@ -21,6 +24,9 @@ import java.security.SecureRandom;
  */
 public class PrivateMessageCodecImpl implements PrivateMessageCodec {
 
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(PrivateMessageCodecImpl.class);
 
     //private static String symAlgorithm = "AES";
     //private static byte[] symKeyValue = "0123456789012345".getBytes(StandardCharsets.UTF_8);
@@ -69,7 +75,11 @@ public class PrivateMessageCodecImpl implements PrivateMessageCodec {
      * @throws IOException
      */
     @Override
-    public PrivateMessageTriple encipher(byte[] plaintext, String senderKeyStoreName, char[] senderKeyStorePasswd, String senderKeyName, String recipientCertFile) throws GeneralSecurityException, IOException {
+    public PrivateMessageTriple encipher(byte[] plaintext,
+                                         String senderKeyStoreName,
+                                         char[] senderKeyStorePasswd,
+                                         String senderKeyName,
+                                         String recipientCertFile) throws GeneralSecurityException, IOException {
 
         PrivateMessageTriple privateMessageTriple = null;
 
@@ -91,9 +101,121 @@ public class PrivateMessageCodecImpl implements PrivateMessageCodec {
         System.out.println(keyBytes);
 
 
+        //Retrieve the (broker's) public key from the provided truststore
+        KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+        KeyStore trustStore = KeyStore.getInstance("JCEKS");
+        trustStore.load(new FileInputStream("src/main/resources/clientTrust.jck"), senderKeyStorePasswd);
+
+        String clientTrustAlias = "clientPubKey";
+        System.out.println("True??? " + trustStore.containsAlias(clientTrustAlias));
+        String value = "clientStorePass";
+        char[] clientStorePasswd = value.toCharArray();
+        Certificate certificate = trustStore.getCertificate(clientTrustAlias);
+        //System.out.println(certificate);
+        Key publicBrokerKey = certificate.getPublicKey();
+
+
+        //Encipher the shared symmetric secret key's bytes using the public key from the certificate file
+        // Encipher symkey with public broker key.
+        Cipher cipherPublicBroker = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        //cipher.init(Cipher.ENCRYPT_MODE, certificate.getPublicKey());
+        //cipher.init(Cipher.ENCRYPT_MODE, certificate);
+        cipher.init(Cipher.ENCRYPT_MODE, publicBrokerKey);
+        byte[] encryptedSym = cipher.doFinal(symKey.getEncoded());
 
 
 
+
+
+
+
+
+
+
+        Cipher cipherSym = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        //Cipher cipherSym = Cipher.getInstance("RSA");
+
+        //cipher.init(Cipher.ENCRYPT_MODE, certificate.getEncoded().\);
+        cipher.init(Cipher.ENCRYPT_MODE, certificate.getPublicKey());
+        cipher.init(Cipher.ENCRYPT_MODE, certificate);
+        cipher.init(Cipher.ENCRYPT_MODE, publicBrokerKey);
+
+        byte[] encryptedSymKey = cipher.doFinal(symKey.getEncoded());
+
+
+
+        // Retrieve the (client's) private key from the the provided keystore
+        KeyStore clientKeyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+        KeyStore clientTrustStore = KeyStore.getInstance("JCEKS");
+        trustStore.load(new FileInputStream("src/main/resources/clientKey.jck"), senderKeyStorePasswd);
+
+
+
+
+
+        // Sign the plaintext order data using the private key from the the provided keystore
+
+        // Construct and return a PrivateMessageTriple containing the ciphertext, key bytes and signature
+
+
+
+
+        Key pubKey = null;
+
+
+
+        //String alias and password for clientTrust?
+
+        pubKey = trustStore.getKey("clientPubKey", senderKeyStorePasswd);
+        System.out.println(pubKey);
+        System.out.println(trustStore.isCertificateEntry(clientTrustAlias));
+
+        pubKey = trustStore.getKey(clientTrustAlias, senderKeyStorePasswd);
+        System.out.println("Here" + pubKey);
+
+
+
+
+/*        Certificate cert = (Certificate) trustStore.getCertificate(clientTrustAlias);
+        try {
+            pubKey = cert.getPublicKey();
+        } catch (NullPointerException e) {
+            logger.info("Null exception: " + e.getMessage());
+        }*/
+
+        System.out.println(pubKey);
+
+
+
+
+
+
+
+
+
+/*
+        try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/clientTrust.jck")){  //keystore.ks       //is the file from where we want to load the file
+            keyStore.load(fileInputStream, senderKeyStorePasswd);
+        }
+
+        try(InputStream keyStoreData = new FileInputStream("src/main/resources/clientTrust.jck")){  //keystore.ks       //is the file from where we want to load the file
+            keyStore.load(keyStoreData, senderKeyStorePasswd);
+        }
+*/
+
+/*
+        byte[] brokerPublicKey;
+        try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/clientTrust.jck"))
+        KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
+
+        KeyStore trustStore = KeyStoreUtil.loadKeyStoreResource("servertruststore.jck", "JCEKS",
+                        SERVER_TRUSTSTORE_PASSWD);
+        Key pubKey = null;
+        String keyAlias = "client";
+        if (trustStore.isCertificateEntry(keyAlias)) {
+            Certificate cert = trustStore.getCertificate(keyAlias);
+            pubKey = cert.getPublicKey()
+*/
 
 
 
@@ -127,7 +249,11 @@ public class PrivateMessageCodecImpl implements PrivateMessageCodec {
      * @throws IOException
      */
     @Override
-    public byte[] decipher(PrivateMessageTriple triple, String recipientKeyStoreName, char[] recipientKeyStorePasswd, String recipientKeyName, String signerCertFile) throws GeneralSecurityException, IOException {
+    public byte[] decipher(PrivateMessageTriple triple,
+                           String recipientKeyStoreName,
+                           char[] recipientKeyStorePasswd,
+                           String recipientKeyName,
+                           String signerCertFile) throws GeneralSecurityException, IOException {
 
 
 
