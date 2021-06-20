@@ -8,3 +8,17 @@ mvn archetype:generate -DinteractiveMode=false \
 mvn clean test
 
 mvn assembly:single
+
+
+mvn archetype:generate -DgroupId=your.base.package 
+                       -DartifactId=cp530
+                       -DarchetypeArtifactId=maven-archetype-webapp
+                       -DinteractiveMode=false
+
+
+mvn archetype:generate -DgroupId=edu.uw \
+                       -DartifactId=cp07 \
+                       -DarchetypeArtifactId=maven-archetype-webapp \
+                       -DinteractiveMode=false
+
+

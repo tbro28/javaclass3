@@ -7,22 +7,21 @@
   <body>
 
 
-<a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=BA&rstype=json">BA (JSON)</a>
-<!--
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=html">GME (html)</a>
 <p>
-<a href="http://localhost:8080/StockQuote/StockQuoteServlet?courtesyType=salutation&format=json">Salutation (json)</a>
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=json">GME (json)</a>
 <p>
-<a href="http://localhost:8080/StockQuote/StockQuoteServlet?courtesyType=salutation&format=plain">Salutation (plain)</a>
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=plain">GME (plain)</a>
 <p>
-<a href="http://localhost:8080/StockQuote/StockQuoteServlet?courtesyType=salutation&format=xml">Salutation (xml)</a>
--->
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=xml">GME (xml)</a>
+
 
 <form id="get-quote" action="http://localhost:8080/StockQuote/StockQuoteServlet" method="post">
 Stock Symbol:
 <select name=symbol size=1>
-  <option value=APPL>Apple
-  <option value=BA>Boeing
   <option value=GME>GameStop
+  <option value=BA>Boeing
+  <option value=SCHX>SCHX
   <option value=MSFT>Microsoft
 </select>
 <br>

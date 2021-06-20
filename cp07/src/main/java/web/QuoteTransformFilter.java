@@ -81,6 +81,8 @@ public class QuoteTransformFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
+        //request.
+
         try {
             //getAlphaVantageQuote("BA");
             getAlphaVantageQuote(request.getParameter("symbol"));
@@ -120,20 +122,30 @@ public class QuoteTransformFilter implements Filter {
         }
         xmlReader.close();
 
+        //Source xmlSrc = new StreamSource(xmlReader);
+        StringWriter output = new StringWriter();
+        //StreamResult result = new StreamResult(output);
 
+
+/*
+        xmlDoc.append(xmlDoc.lastIndexOf("<symbol>")+8);
+        xmlDoc.append("---");
+        xmlDoc.append(xmlDoc.lastIndexOf("</symbol>")-1);
+        xmlDoc.append("---");
+        xmlDoc.append(xmlDoc.substring((xmlDoc.lastIndexOf("<symbol>")+8),(xmlDoc.lastIndexOf("</symbol>"))));
+        xmlDoc.append(xmlDoc.substring((xmlDoc.lastIndexOf("<price>")+7),(xmlDoc.lastIndexOf("</price>"))));
+*/
+
+        String symbol = xmlDoc.substring((xmlDoc.lastIndexOf("<symbol>")+8),(xmlDoc.lastIndexOf("</symbol>")));
+        String price = xmlDoc.substring((xmlDoc.lastIndexOf("<price>")+7),(xmlDoc.lastIndexOf("</price>")));
+
+        //price.
 
         //xmlReader.
-
-        Source xmlSrc = new StreamSource(xmlReader);
         //xmlSrc.
-        StringWriter output = new StringWriter();
 
-        StreamResult result = new StreamResult(output);
-
-        output.append(xmlDoc);
-
-        output.append("<p>HEHE</p>");
-        output.append(request.getParameter("price"));
+        //output.append("<p>HEHE</p>");
+        //output.append(request.getParameter("price"));
 
         switch (outputType) {
             case "xml":
@@ -141,9 +153,16 @@ public class QuoteTransformFilter implements Filter {
 /*                response.setContentType("text/xml");
                 response.setContentLength(xmlSrc.length());
                 response.getWriter().print(xmlSrc);*/
+                output.append(xmlDoc);
                 break;
             case "html":
-                //response.setContentType("text/html");
+                response.setContentType("text/html");
+
+                //int xmlTag = xmlDoc.indexOf("?>");
+
+                String htmlDoc = "<!DOCTYPE html><html><body>" + xmlDoc.substring(xmlDoc.indexOf("?>")+2, xmlDoc.length()) + "</body></html>";
+
+                output.append(htmlDoc);
                 //charResponseWrapper = new CharResponseWrapper(response);
                 //quoteTransformFilter.init(filterConfig);  //???????????????????
                 //quoteTransformFilter.doFilter(request, response, chain);
@@ -152,13 +171,28 @@ public class QuoteTransformFilter implements Filter {
                 response.getWriter().print(xmlDoc);*/
                 break;
             case "json":
-                //response.setContentType("application/json");
+                response.setContentType("application/json");
                 //wrapper.getWriter().print("Filter JSON break!!!!!!!!!!!!");
+
+                //{"type":"salutation", "phrase":"Hello"}
+                output.append( "{\"symbol\":\"" + symbol + "\", \"price\":\""+ price +"\"}");
+
                 break;
             case "plain":
-                //response.setContentType("text/plain");
+                response.setContentType("text/plain");
+
+                output.append("Ticker symbol: "
+                        + symbol
+                        + " has a price of: "
+                        + price
+                );
+
                 break;
         }
+
+
+
+
 
 //        Transformer transformer;
  //       transformer = transformerFactory.newTransformer(); // identity transform

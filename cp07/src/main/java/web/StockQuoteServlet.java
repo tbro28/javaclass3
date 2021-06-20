@@ -52,8 +52,8 @@ public class StockQuoteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().print("Do GET!!!!!!!!!!!!");
-	    //serviceRequest(request, response);
+        //response.getWriter().print("Do GET!!!!!!!!!!!!");
+	    serviceRequest(request, response);
 	}
 
 	/**
@@ -108,21 +108,21 @@ public class StockQuoteServlet extends HttpServlet {
         //filterChain.doFilter(request, response);  //?????????????????????????????
         //filterChain.doFilter(request, response);
 
-        switch (outputType) {
+/*        switch (outputType) {
 
             case "xml":
                 response.setContentType("text/xml");
-                /*response.setContentLength(xmlDoc.length());
-                response.getWriter().print(xmlDoc);*/
+                *//*response.setContentLength(xmlDoc.length());
+                response.getWriter().print(xmlDoc);*//*
                 break;
             case "html":
                 response.setContentType("text/html");
                 //charResponseWrapper = new CharResponseWrapper(response);
 
-/*
+*//*
                 quoteTransformFilter.init(filterConfig);  //???????????????????
                 quoteTransformFilter.doFilter(request, response, filterChain);
-*/
+*//*
 
                 break;
             case "json":
@@ -133,7 +133,7 @@ public class StockQuoteServlet extends HttpServlet {
                 response.setContentType("text/plain");
 
                 break;
-        }
+        }*/
 
         response.setContentType("text/xml");
         response.setContentLength(xmlDoc.length());
@@ -152,11 +152,25 @@ public class StockQuoteServlet extends HttpServlet {
 
     private void createXml() {
         xmlDoc = new StringBuffer();
-        //xmlDoc.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        xmlDoc.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         xmlDoc.append("<quote>");
         xmlDoc.append("<symbol>"+alphaVantageQuote.getSymbol()+"</symbol>");
-        xmlDoc.append("<price>"+alphaVantageQuote.getPrice()+"</price>");
+        xmlDoc.append("<price>"+formatPrice()+"</price>");
         xmlDoc.append("</quote>");
+    }
+
+
+    private StringBuffer formatPrice() {
+
+        String priceString = String.valueOf(alphaVantageQuote.getPrice());
+        StringBuffer price = new StringBuffer();
+
+        price.append("$");
+        price.append(priceString, 0, priceString.length()-2);
+        price.append(".");
+        price.append(priceString, priceString.length()-2, priceString.length());
+
+        return price;
     }
 
 }
