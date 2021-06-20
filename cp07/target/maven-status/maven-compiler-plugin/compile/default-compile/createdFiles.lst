@@ -1,0 +1,4 @@
+web\TextResponseWrapper.class
+web\CharResponseWrapper.class
+web\StockQuoteServlet.class
+web\QuoteTransformFilter.class
