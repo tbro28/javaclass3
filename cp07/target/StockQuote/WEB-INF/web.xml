@@ -9,7 +9,7 @@
     <description> </description>
     <display-name>Quote Transform Filter</display-name>
     <filter-name>QuoteTransformFilter</filter-name>
-    <filter-class>web.QuoteTransformFilter</filter-class>
+    <filter-class>edu.uw.tjb.QuoteTransformFilter</filter-class>
     <init-param>
       <param-name>transform</param-name>
       <param-value>default</param-value>
@@ -34,7 +34,7 @@
     <description></description>
     <display-name>StockQuoteServlet</display-name>
     <servlet-name>StockQuoteServlet</servlet-name>
-    <servlet-class>web.StockQuoteServlet</servlet-class>
+    <servlet-class>edu.uw.tjb.StockQuoteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>StockQuoteServlet</servlet-name>

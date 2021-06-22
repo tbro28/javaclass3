@@ -7,6 +7,9 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Application to conduct some testing.
+ */
 public class QuoteApp {
     private static void exec(final String ticker, final String rstype) {
         HttpURLConnection conn = null;

@@ -38,7 +38,7 @@ public final class ProtocolConstants {
     /**
      * The character used to separate elements in the protocol.
      */
-    static String ELEMENT_DELIMITER = "ELEMENT_DELIMITER";
+    static String ELEMENT_DELIMITER = ":";
 
     /**
      * Character encoding to use.
@@ -93,13 +93,13 @@ public final class ProtocolConstants {
     /**
      * The invalid stock price - indicates stock is not on the exchange.
      */
-    static int INVALID_STOCK = ;
+    static int INVALID_STOCK = -1;
 
 
     /**
      * Event indicating the exchange has opened.
      */
-    static String OPEN_EVNT = "";
+    static String OPEN_EVNT = "OPEN_EVNT";
 
     /**
      * Indicates the exchange is open.

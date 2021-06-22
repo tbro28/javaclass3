@@ -9,10 +9,13 @@ import edu.uw.ext.framework.exchange.StockExchange;
  */
 public class CommandHandler implements Runnable {
 
+    private Socket sock;
+    private StockExchange realExchange;
 
 
     public CommandHandler(Socket sock, StockExchange realExchange) {
-
+        this.sock = sock;
+        this.realExchange = realExchange;
     }
 
     /**
@@ -28,6 +31,8 @@ public class CommandHandler implements Runnable {
      */
     @Override
     public void run() {
+
+
 
     }
 }

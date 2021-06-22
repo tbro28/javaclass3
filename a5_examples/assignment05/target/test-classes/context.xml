@@ -33,6 +33,12 @@
   <bean id="DaoFactory" class="edu.uw.tjb.dao.JsonDaoFactory"/> -->
   <bean id="DaoFactory" class="edu.uw.tjb.dao.FileDaoFactory"/>
 
+  <!-- Bean implementing ...framework.exchange.NetworkExchangeAdapterFactory -->
+  <bean id="NetworkExchangeAdapterFactory" class="edu.uw.tjb.exchange.ExchangeNetworkAdapterFactory"/>
+
+  <!-- Bean implementing ...framework.exchange.NetworkExchangeProxyFactory -->
+  <bean id="NetworkExchangeProxyFactory" class="edu.uw.tjb.exchange.ExchangeNetworkProxyFactory"/>
+
   <!-- Bean providing zip implementation of edu.uw.ext.framework.account.DaoFactory -->
   <!--
   <bean id="DaoFactory" class="edu.uw.tjb.dao.ZipDaoFactory"/>

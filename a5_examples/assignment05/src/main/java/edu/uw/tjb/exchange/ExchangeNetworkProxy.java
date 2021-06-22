@@ -10,6 +10,11 @@ import java.util.Optional;
 public class ExchangeNetworkProxy implements StockExchange {
 
 
+    private String cmdIpAddress;
+    private int cmdPort;
+    private NetEventProcessor netEventProcessor;
+
+
     /**
      * eventIpAddress - the multicast IP address to connect to
      * eventPort - the multicast port to connect to
@@ -25,6 +30,11 @@ public class ExchangeNetworkProxy implements StockExchange {
                                 int eventPort,
                                 String cmdIpAddress,
                                 int cmdPort) {
+
+        this.cmdIpAddress = cmdIpAddress;
+        this.cmdPort = cmdPort;
+        netEventProcessor = new NetEventProcessor(eventIpAddress, eventPort);
+
 
     }
 

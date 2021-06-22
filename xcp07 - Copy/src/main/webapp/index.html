@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Stock Quote Servlet</title>
+  </head>
+  <body>
+
+
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=html">GME (html)</a>
+<p>
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=json">GME (json)</a>
+<p>
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=plain">GME (plain)</a>
+<p>
+  <a href="http://localhost:8080/StockQuote/StockQuoteServlet?symbol=GME&rstype=xml">GME (xml)</a>
+
+
+<form id="get-quote" action="http://localhost:8080/StockQuote/StockQuoteServlet" method="post">
+Stock Symbol:
+<select name=symbol size=1>
+  <option value=GME>GameStop
+  <option value=BA>Boeing
+  <option value=SCHX>SCHX
+  <option value=MSFT>Microsoft
+</select>
+<br>
+Format:
+<input type="radio" name="rstype" value="html">HTML
+<input type="radio" name="rstype" value="json" checked>JSON
+<input type="radio" name="rstype" value="plain">Plain
+<input type="radio" name="rstype" value="xml">XML
+<p>
+<input type="submit" name="submit_btn" value="Get Quote">
+</form>
+
+  </body>
+</html>

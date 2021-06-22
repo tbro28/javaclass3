@@ -1,6 +1,8 @@
 package edu.uw.tjb.exchange;
 
 import edu.uw.ext.framework.exchange.ExchangeListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Listens for (by joining the multicast group) and processes events received from the exchange.
@@ -8,7 +10,16 @@ import edu.uw.ext.framework.exchange.ExchangeListener;
  */
 public class NetEventProcessor implements Runnable {
 
+    private static final Logger log = LoggerFactory.getLogger(NetEventProcessor.class);
 
+    private String eventIpAddress;
+    private int eventPort;
+
+
+    public NetEventProcessor (String eventIpAddress, int eventPort) {
+        this.eventIpAddress = eventIpAddress;
+        this.eventPort = eventPort;
+    }
 
     /**
      * Continuously accepts and processes market and price change events.
@@ -25,6 +36,8 @@ public class NetEventProcessor implements Runnable {
      */
     @Override
     public void run() {
+
+
 
     }
 
