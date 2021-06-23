@@ -3,12 +3,14 @@ package edu.uw.tjb.exchange;
 import edu.uw.ext.framework.exchange.StockExchange;
 import org.springframework.util.StopWatch;
 
-public class Atest {
+public class Atest implements StockExchange {
 
 
     public static void main(String args[]) {
 
-        StockExchange stockExchange = new StopWatch();
+        StockExchange stockExchange = (StockExchange) new StopWatch();
+
+        stockExchange.getQuote("GME");
 
     }
 

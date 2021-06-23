@@ -50,6 +50,8 @@ public class CommandListener implements Runnable {
         try {
             serverSocket = new ServerSocket(commandPort);
 
+            log.info("Socket obtained: " + serverSocket.getLocalPort());
+
             while(!serverSocket.isClosed()){
                 Socket sock = serverSocket.accept();
                 service.execute(new CommandHandler(sock, realExchange));
@@ -67,6 +69,7 @@ public class CommandListener implements Runnable {
      */
     public void terminate(){
         try {
+            service.shutdown();
             serverSocket.close();
         } catch (IOException e) {
             log.error("Failed to close the socket", e);

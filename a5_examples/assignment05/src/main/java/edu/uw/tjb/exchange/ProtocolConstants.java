@@ -18,118 +18,119 @@ public final class ProtocolConstants {
     /**
      * Identifies an order as a buy order.
      */
-    static String BUY_ORDER = "BUY_ORDER";
+    final static String BUY_ORDER = "BUY_ORDER";
 
     /**
      * Event indicating the exchange has closed.
      */
-    static String CLOSED_EVNT = "CLOSED_EVNT";
+    final static String CLOSED_EVNT = "CLOSED_EVNT";
 
     /**
      * Indicates the exchange is closed.
      */
-    static String CLOSED_STATE = "CLOSED_STATE";
+    final static String CLOSED_STATE = "CLOSED_STATE";
 
     /**
      * The index of the command element.
      */
-    static int	CMD_ELEMENT = ;
+    final static int	CMD_ELEMENT = 0;
 
     /**
      * The character used to separate elements in the protocol.
      */
-    static String ELEMENT_DELIMITER = ":";
+    final static String ELEMENT_DELIMITER = ":";
 
     /**
      * Character encoding to use.
+     * Used with the sockets/streams?
      */
-    static String ENCODING = "ENCODING";
-
-    /**
-     * The index of the event type element.
-     */
-    static int EVENT_ELEMENT = ;
+    final static String ENCODING = "";
 
     /**
      * A request to execute a trade.
      */
-    static String EXECUTE_TRADE_CMD = "EXECUTE_TRADE_CMD";
+    final static String EXECUTE_TRADE_CMD = "EXECUTE_TRADE_CMD";
+
+    /**
+     * The index of the ticker element in the price quote command.
+     */
+    final static int QUOTE_CMD_TICKER_ELEMENT = 1;
 
     /**
      * The index of the account id element in the execute trade command.
      */
-    static int	EXECUTE_TRADE_CMD_ACCOUNT_ELEMENT = ;
+    final static int	EXECUTE_TRADE_CMD_ACCOUNT_ELEMENT = 2;
 
     /**
      * The index of the shares element in the execute trade command.
      */
-    static int EXECUTE_TRADE_CMD_SHARES_ELEMENT = ;
+    final static int EXECUTE_TRADE_CMD_SHARES_ELEMENT = 4;
 
     /**
      * The index of the ticker element in the execute trade command.
      */
-    static int EXECUTE_TRADE_CMD_TICKER_ELEMENT = ;
+    final static int EXECUTE_TRADE_CMD_TICKER_ELEMENT = 3;
 
     /**
      * The index of the order type element in the execute trade command.
      */
-    static int EXECUTE_TRADE_CMD_TYPE_ELEMENT = ;
+    final static int EXECUTE_TRADE_CMD_TYPE_ELEMENT = 1;
 
     /**
      * A request for a stock price quote.
      */
-    static String GET_QUOTE_CMD = "GET_QUOTE_CMD";
+    final static String GET_QUOTE_CMD = "GET_QUOTE_CMD";
 
     /**
      * A request for the exchange's state.
      */
-    static String GET_STATE_CMD = "GET_STATE_CMD";
+    final static String GET_STATE_CMD = "GET_STATE_CMD";
 
     /**
      * A request for the ticker symbols for the traded stocks.
      */
-    static String GET_TICKERS_CMD = "GET_TICKERS_CMD";
+    final static String GET_TICKERS_CMD = "GET_TICKERS_CMD";
 
     /**
      * The invalid stock price - indicates stock is not on the exchange.
      */
-    static int INVALID_STOCK = -1;
+    final static int INVALID_STOCK = -1;
 
 
     /**
      * Event indicating the exchange has opened.
      */
-    static String OPEN_EVNT = "OPEN_EVNT";
+    final static String OPEN_EVNT = "OPEN_EVNT";
 
     /**
      * Indicates the exchange is open.
      */
-    static String OPEN_STATE = "OPEN_STATE";
+    final static String OPEN_STATE = "OPEN_STATE";
 
     /**
      * Event indicating a stock price has changed.
      */
-    static String PRICE_CHANGE_EVNT = "PRICE_CHANGE_EVNT";
+    final static String PRICE_CHANGE_EVNT = "PRICE_CHANGE_EVNT";
 
     /**
-     * The index of the price element.
+     * The index of the event type element.
      */
-    static int PRICE_CHANGE_EVNT_PRICE_ELEMENT = ;
+    final static int EVENT_ELEMENT = 0;
 
     /**
      * The index of the ticker element.
      */
-    static int PRICE_CHANGE_EVNT_TICKER_ELEMENT = ;
+    final static int PRICE_CHANGE_EVNT_TICKER_ELEMENT = 1;
 
     /**
-     * The index of the ticker element in the price quote command.
+     * The index of the price element.
      */
-    static int QUOTE_CMD_TICKER_ELEMENT = ;
+    final static int PRICE_CHANGE_EVNT_PRICE_ELEMENT = 2;
 
     /**
      * Identifies an order as a sell order.
      */
-    static String SELL_ORDER = "SELL_ORDER";
+    final static String SELL_ORDER = "SELL_ORDER";
 
 
 

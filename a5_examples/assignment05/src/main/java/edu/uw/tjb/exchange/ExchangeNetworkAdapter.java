@@ -5,10 +5,22 @@ import edu.uw.ext.framework.exchange.ExchangeEvent;
 import edu.uw.ext.framework.exchange.StockExchange;
 
 import java.io.Closeable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
+/**
+ * Provides a network interface to an exchange.
+ * Handles the outgoing multicast to NetEventProcessor.
+ */
 public class ExchangeNetworkAdapter implements ExchangeAdapter {
 
 
+    private ExecutorService commandListenerExecutor;
+    private CommandListener commandListener;
+    private String exchange;
+    private String multicastIP;
+    private int multicastPort;
+    private int commandPort;
 
 
     public ExchangeNetworkAdapter(StockExchange exchange,
@@ -16,6 +28,9 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
                                   int multicastPort,
                                   int commandPort) {
 
+        commandListener = new CommandListener(commandPort, exchange);
+        commandListenerExecutor = Executors.newSingleThreadExecutor();
+        commandListenerExecutor.execute(commandListener);
     }
 
 
