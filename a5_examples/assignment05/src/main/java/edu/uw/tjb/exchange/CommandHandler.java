@@ -105,7 +105,8 @@ public class CommandHandler implements Runnable {
                     Request:  EXECUTE_TRADE_CMD:BUY_ORDER|SELL_ORDER:account_id:symbol:shares
                     Execute a trade, where BUY_ORDER or SELL_ORDER indicates the type of trade to execute,
                     account_id identifies the account the trade is being performed on the behalf of,
-                    symbol specifies the ticker symbol of the stock to be traded, and shares specifies the number of shares to trade.
+                    symbol specifies the ticker symbol of the stock to be traded, and shares specifies
+                    the number of shares to trade.
 
                     Buy versus sell order.
 

@@ -53,7 +53,6 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
         exchange.addExchangeListener(this);
 
         //https://www.developer.com/design/how-to-multicast-using-java-sockets/
-
         try {
             socket = new MulticastSocket(multicastPort);
             group = InetAddress.getByName(multicastIP);
@@ -61,10 +60,6 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 
 
