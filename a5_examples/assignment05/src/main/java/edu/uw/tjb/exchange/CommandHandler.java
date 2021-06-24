@@ -80,7 +80,10 @@ public class CommandHandler implements Runnable {
             switch(command) {
 
                 case GET_STATE_CMD:
-                    out.println(realExchange.isOpen());
+                    if (realExchange.isOpen())
+                        out.println(OPEN_STATE);
+                    else
+                        out.println(CLOSED_STATE);
                     break;
 
                 case GET_TICKERS_CMD:
@@ -144,7 +147,5 @@ public class CommandHandler implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
