@@ -65,8 +65,6 @@ public class NetEventProcessor implements Runnable {
 
         while(!socket.isClosed()){
 
-            log.info("Waiting for message...");
-
             DatagramPacket packet=new DatagramPacket(buffer,
                     buffer.length);
             try {
