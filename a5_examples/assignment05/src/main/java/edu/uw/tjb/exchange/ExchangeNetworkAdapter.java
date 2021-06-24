@@ -5,12 +5,19 @@ import edu.uw.ext.framework.exchange.ExchangeEvent;
 import edu.uw.ext.framework.exchange.StockExchange;
 
 import java.io.Closeable;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+import java.net.MulticastSocket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static edu.uw.tjb.exchange.ProtocolConstants.*;
 
 /**
  * Provides a network interface to an exchange.
  * Handles the outgoing multicast to NetEventProcessor.
+ * Look at the Typical Event Sequence.
  */
 public class ExchangeNetworkAdapter implements ExchangeAdapter {
 
@@ -23,6 +30,14 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
     private int commandPort;
 
 
+
+    MulticastSocket socket;
+    InetAddress group;
+    byte[] buffer=new byte[1024];
+    DatagramPacket packet;
+
+
+
     public ExchangeNetworkAdapter(StockExchange exchange,
                                   String multicastIP,
                                   int multicastPort,
@@ -31,19 +46,45 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
         commandListener = new CommandListener(commandPort, exchange);
         commandListenerExecutor = Executors.newSingleThreadExecutor();
         commandListenerExecutor.execute(commandListener);
-    }
 
+        // Added after review in class.
+        // It registers to listen for events (an ExchangeEvent in the diagram)
+        // from the exchange (matching the events below).
+        exchange.addExchangeListener(this);
+
+        //https://www.developer.com/design/how-to-multicast-using-java-sockets/
+
+        try {
+            socket = new MulticastSocket(multicastPort);
+            group = InetAddress.getByName(multicastIP);
+            socket.joinGroup(group);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+    }
 
 
     /**
      * The exchange has opened and prices are adjusting - add listener to receive
      * price change events from the exchange and multicast them to brokers.
      *
+     * The Typical Event Sequence diagram details this flow.
+     *
      * @param exchangeEvent
      */
     @Override
     public void exchangeOpened(ExchangeEvent exchangeEvent) {
-
+        byte[] msg = OPEN_EVNT.getBytes();
+        packet = new DatagramPacket(msg, msg.length);
+        try {
+            socket.send(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -55,7 +96,13 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
      */
     @Override
     public void exchangeClosed(ExchangeEvent exchangeEvent) {
-
+        byte[] msg = CLOSED_EVNT.getBytes();
+        packet = new DatagramPacket(msg, msg.length);
+        try {
+            socket.send(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -63,11 +110,34 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
     /**
      * Processes price change events.
      *
+     * This is detailed specifically in the event diagram.
+     * Build the message and send it out via multicast:
+     *
+     * in: priceChanged(BA:500)
+     * out: multicastSend(PRICE_CHANGE:BA:500)
+     *
+     * multicast, beginning of class
+     *
+     * https://www.baeldung.com/java-broadcast-multicast
+     *
      * @param exchangeEvent
      */
     @Override
     public void priceChanged(ExchangeEvent exchangeEvent) {
+        String pChange = String.join(ELEMENT_DELIMITER,
+                        PRICE_CHANGE_EVNT,
+                        exchangeEvent.getTicker(),
+                        Integer.toString(exchangeEvent.getPrice()));
 
+        //socket = new DatagramSocket();
+        //InetAddress group = InetAddress.getByName(ipAddress);
+        byte[] msg = pChange.getBytes();
+        packet = new DatagramPacket(msg, msg.length);
+        try {
+            socket.send(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -119,6 +189,6 @@ public class ExchangeNetworkAdapter implements ExchangeAdapter {
      */
     @Override
     public void close() throws Exception {
-
+        socket.close();
     }
 }
